@@ -12,7 +12,7 @@ parse-hipaa can be easily deployed or tested remote or locally.
 
 ### Remote
 
-#### Heroku with Postgres
+#### Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 You can use the one-button deployment to quickly deploy to Heroko. **Note that this is non-HIPAA compliant when using Heroku's free services**, so you need to work with Heroku to enable this. Once you click the Heroku button do the following:

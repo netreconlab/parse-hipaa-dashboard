@@ -6,11 +6,11 @@
     "keywords": ["node", "express", "parse", "carekit", "hipaa", "dashboard"],
     "env": {
       "PARSE_DASHBOARD_APP_ID": {
-        "description": "A unique identifier for your app.",
+        "description": "The unique identifier for your app.",
         "required": true
       },
       "PARSE_DASHBOARD_MASTER_KEY": {
-        "description": "A key that overrides all permissions. Keep this secret.",
+        "description": "The key that overrides all permissions.",
         "required": true
       },
       "PARSE_DASHBOARD_SERVER_URL": {
@@ -50,5 +50,14 @@
         "value": "/"
       }
     },
-    "stack": "container"
+    "stack": "container",
+    "addons": [
+        {
+            "plan": "heroku-postgresql",
+            "as": "db",
+            "options": {
+              "version": "13"
+            }
+        }
+    ]
   }
