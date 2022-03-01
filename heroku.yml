@@ -1,0 +1,6 @@
+build: 
+  docker:
+    web: dashboard/Dockerfile.heroku 
+run:
+  web: parse-dashboard --dev
+ 

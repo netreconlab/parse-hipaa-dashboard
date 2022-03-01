@@ -1,0 +1,54 @@
+{
+    "name": "Parse HIPAA Dashboard Example",
+    "description": "An example Parse server dashboard",
+    "repository": "https://github.com/netreconlab/parse-hipaa-dashboard",
+    "logo": "https://avatars0.githubusercontent.com/u/1294580?v=3&s=200",
+    "keywords": ["node", "express", "parse", "carekit", "hipaa", "dashboard"],
+    "env": {
+      "PARSE_DASHBOARD_APP_ID": {
+        "description": "A unique identifier for your app.",
+        "required": true
+      },
+      "PARSE_DASHBOARD_MASTER_KEY": {
+        "description": "A key that overrides all permissions. Keep this secret.",
+        "required": true
+      },
+      "PARSE_DASHBOARD_SERVER_URL": {
+        "description": "URL to connect to your parse-hipaa or parse-server instance",
+        "required": true
+      },
+      "PARSE_DASHBOARD_GRAPHQL_SERVER_URL": {
+        "description": "URL to connect to your parse-hipaa or parse-server instance (your server's URL/graphql)",
+        "required": false
+      },
+      "PARSE_DASHBOARD_APP_NAME": {
+        "description": "The name of your app.",
+        "required": true
+      },
+      "PARSE_DASHBOARD_USER_ID": {
+        "description": "Specify the user password to connect with.",
+        "required": true
+      },
+      "PARSE_DASHBOARD_USER_PASSWORD": {
+        "description": "Specify the user password to connect with. Can use a site to hash your password, https://bcrypt-generator.com.",
+        "required": true
+      },
+      "PARSE_DASHBOARD_COOKIE_SESSION_SECRET": {
+        "description": "A constant cookie session for dashboard.",
+        "required": false
+      },
+      "PORT": {
+        "description": "Port for parse-hipaa-dashboard, default is 4040.",
+        "value": "4040"
+      },
+      "PARSE_DASHBOARD_TRUST_PROXY": {
+        "description": "Should trust proxy in docker.",
+        "value": "1"
+      },
+      "MOUNT_PATH": {
+        "description": "The mount path should be the same as the docker name.",
+        "value": "/"
+      }
+    },
+    "stack": "container"
+  }
