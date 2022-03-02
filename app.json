@@ -9,7 +9,7 @@
         "description": "The unique identifier for your app.",
         "required": true
       },
-      "PARSE_DASHBOARD_MASTER_KEY": {
+      "PARSE_DASHBOARD_PRIMARY_KEY": {
         "description": "The key that overrides all permissions.",
         "required": true
       },
@@ -34,8 +34,12 @@
         "required": true
       },
       "PARSE_DASHBOARD_COOKIE_SESSION_SECRET": {
-        "description": "A constant cookie session for dashboard.",
+        "description": "The constant cookie session for dashboard.",
         "required": false
+      },
+      "PARSE_DASHBOARD_CONFIG": {
+        "description": "The config file for dashboard.",
+        "required": false 
       },
       "PORT": {
         "description": "Port for parse-hipaa-dashboard, default is 4040.",
