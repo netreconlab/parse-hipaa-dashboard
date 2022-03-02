@@ -11,52 +11,52 @@ const cookieSessionSecret = process.env.PARSE_DASHBOARD_COOKIE_SESSION_SECRET;
 const trustProxy = process.env.PARSE_DASHBOARD_TRUST_PROXY;
 
 if (trustProxy && allowInsecureHTTP) {
-    console.log('Set only trustProxy *or* allowInsecureHTTP, not both.  Only one is needed to handle being behind a proxy.');
-    process.exit(-1);
+  console.log('Set only trustProxy *or* allowInsecureHTTP, not both.  Only one is needed to handle being behind a proxy.');
+  process.exit(-1);
 }
 
 let configFile = null;
 let configFromCLI = null;
-let configServerURL = process.env.PARSE_DASHBOARD_SERVER_URL;
-let configGraphQLServerURL = process.env.PARSE_DASHBOARD_GRAPHQL_SERVER_URL;
-let configPrimaryKey = process.env.PARSE_DASHBOARD_PRIMARY_KEY;
-let configAppId = process.env.PARSE_DASHBOARD_APP_ID;
-let configAppName = process.env.PARSE_DASHBOARD_APP_NAME;
-let configUserId = process.env.PARSE_DASHBOARD_USER_ID;
-let configUserPassword = process.env.PARSE_DASHBOARD_USER_PASSWORD;
+const configServerURL = process.env.PARSE_DASHBOARD_SERVER_URL;
+const configGraphQLServerURL = process.env.PARSE_DASHBOARD_GRAPHQL_SERVER_URL;
+const configPrimaryKey = process.env.PARSE_DASHBOARD_PRIMARY_KEY;
+const configAppId = process.env.PARSE_DASHBOARD_APP_ID;
+const configAppName = process.env.PARSE_DASHBOARD_APP_NAME;
+const configUserId = process.env.PARSE_DASHBOARD_USER_ID;
+const configUserPassword = process.env.PARSE_DASHBOARD_USER_PASSWORD;
 
 if (!process.env.PARSE_DASHBOARD_CONFIG) {
-    if (configServerURL && configPrimaryKey && configAppId) {
-        configFromCLI = {
-            data: {
-                apps: [
-                    {
-                        appId: configAppId,
-                        serverURL: configServerURL,
-                        masterKey: configPrimaryKey,
-                        appName: configAppName,
-                    },
-                ]
-            }
-        };
-        if (configGraphQLServerURL) {
-            configFromCLI.data.apps[0].graphQLServerURL = configGraphQLServerURL;
-        }
-        if (configUserId && configUserPassword) {
-            configFromCLI.data.users = [
-            {
-                user: configUserId,
-                pass: configUserPassword,
-            }
-            ];
-        }
-    } else if (!configServerURL && !configPrimaryKey && !configAppName) {
-      configFile = path.join(__dirname, 'parse-dashboard-config.json');
-    }  
-} else {
+  if (configServerURL && configPrimaryKey && configAppId) {
     configFromCLI = {
-      data: JSON.parse(process.env.PARSE_DASHBOARD_CONFIG)
-    };  
+      data: {
+        apps: [
+          {
+            appId: configAppId,
+            serverURL: configServerURL,
+            masterKey: configPrimaryKey,
+            appName: configAppName,
+          },
+        ]
+      }
+    };
+    if (configGraphQLServerURL) {
+      configFromCLI.data.apps[0].graphQLServerURL = configGraphQLServerURL;
+    }
+    if (configUserId && configUserPassword) {
+      configFromCLI.data.users = [
+        {
+          user: configUserId,
+          pass: configUserPassword,
+        }
+      ];
+    }
+  } else if (!configServerURL && !configPrimaryKey && !configAppName) {
+    configFile = path.join(__dirname, 'parse-dashboard-config.json');
+  }
+} else {
+  configFromCLI = {
+    data: JSON.parse(process.env.PARSE_DASHBOARD_CONFIG)
+  };
 }
 
 let config = null;
@@ -72,8 +72,8 @@ if (configFile) {
       console.log('Your config file contains invalid JSON. Exiting.');
       process.exit(1);
     } else if (error.code === 'ENOENT') {
-        console.log('You must provide either a config file or required CLI options (app ID, Primary Key, and server URL); not both.');
-        process.exit(3);
+      console.log('You must provide either a config file or required CLI options (app ID, Primary Key, and server URL); not both.');
+      process.exit(3);
     } else {
       console.log('There was a problem with your config. Exiting.');
       process.exit(-1);
@@ -101,9 +101,9 @@ const app = express();
 if (allowInsecureHTTP || trustProxy) app.enable('trust proxy');
 
 config.data.trustProxy = trustProxy;
-let dashboardOptions = { allowInsecureHTTP, cookieSessionSecret };
+const dashboardOptions = { allowInsecureHTTP, cookieSessionSecret };
 const dashboard = new ParseDashboard(config.data, dashboardOptions);
 app.use(mountPath, dashboard);
 const server = app.listen(port, host, function () {
-    console.log(`The dashboard is now available at http://${server.address().address}:${server.address().port}${mountPath}`);
+  console.log(`The dashboard is now available at http://${server.address().address}:${server.address().port}${mountPath}`);
 });
