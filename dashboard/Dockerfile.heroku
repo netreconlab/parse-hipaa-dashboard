@@ -1,3 +1,6 @@
 FROM parseplatform/parse-dashboard:4.0.0
 
 # COPY ./parse-dashboard-config.json ./parse-dashboard-config.json # Uncomment to use your own config file
+
+ENTRYPOINT []
+CMD ["parse-dashboard", "--dev"]

@@ -2,5 +2,5 @@ build:
   docker:
     web: dashboard/Dockerfile.heroku 
 run:
-  web: /bin/parse-dashboard --dev
+  web: /parse-dashboard --dev
  
