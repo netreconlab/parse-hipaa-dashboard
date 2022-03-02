@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
 RUN mkdir parse-hipaa-dashboard
-WORKDIR ./parse-hipaa-dashboard/ 
+WORKDIR ./parse-hipaa-dashboard 
 COPY . .
 
 
@@ -9,4 +9,4 @@ COPY . .
 RUN npm install
 
 ENTRYPOINT []
-CMD ["node", "index.js"]
+CMD ["node", "./src/index.js"]

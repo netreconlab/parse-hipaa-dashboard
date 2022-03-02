@@ -30,7 +30,7 @@
         "required": true
       },
       "PARSE_DASHBOARD_USER_PASSWORD": {
-        "description": "Specify the user password to connect with. Can use a site to hash your password, https://bcrypt-generator.com.",
+        "description": "Specify the user password to connect with. This is a password in plain text.",
         "required": true
       },
       "PARSE_DASHBOARD_COOKIE_SESSION_SECRET": {
