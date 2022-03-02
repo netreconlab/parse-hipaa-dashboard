@@ -54,10 +54,5 @@
         "value": "/"
       }
     },
-    "stack": "container",
-    "buildpacks": [
-        {
-          "url": "heroku/nodejs"
-        }
-    ]
+    "stack": "container"
   }
