@@ -51,13 +51,9 @@
       }
     },
     "stack": "container",
-    "addons": [
+    "buildpacks": [
         {
-            "plan": "heroku-postgresql",
-            "as": "db",
-            "options": {
-              "version": "13"
-            }
+          "url": "heroku/nodejs"
         }
     ]
   }
