@@ -1,0 +1,7 @@
+node_modules
+coverage
+tmp
+disti
+heroku.yml
+docker-compose.yml
+

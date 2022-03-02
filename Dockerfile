@@ -1,10 +1,11 @@
 FROM node:lts-alpine
 
-COPY ./package.json ./package.json
-COPY ./package-lock.json ./package-lock.json 
-COPY ./src/index.js ./index.js
-# COPY ./src/parse-dashboard-config.json ./parse-dashboard-config.json # Uncomment to use your own config file
+RUN mkdir parse-hipaa-dashboard
+WORKDIR ./parse-hipaa-dashboard/ 
+COPY . .
 
+
+# Install remaining dev dependencies
 RUN npm install
 
 ENTRYPOINT []
