@@ -1,7 +1,15 @@
 node_modules
 coverage
 tmp
-disti
 heroku.yml
 docker-compose.yml
+npm-debug.log
+*.md
+LICENSE
+Dockerfile
+.dockerignore
+.gitignore
+.istanbul.yml
+.git
+.github
 

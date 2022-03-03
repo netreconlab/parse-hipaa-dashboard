@@ -24,6 +24,7 @@ const configAppId = process.env.PARSE_DASHBOARD_APP_ID;
 const configAppName = process.env.PARSE_DASHBOARD_APP_NAME;
 const configUserId = process.env.PARSE_DASHBOARD_USER_ID;
 const configUserPassword = process.env.PARSE_DASHBOARD_USER_PASSWORD;
+const configUserPasswordEncrypted = process.env.PARSE_DASHBOARD_USER_PASSWORD_ENCRYPTED || true;
 
 if (!process.env.PARSE_DASHBOARD_CONFIG) {
   if (configServerURL && configPrimaryKey && configAppId) {
@@ -49,6 +50,7 @@ if (!process.env.PARSE_DASHBOARD_CONFIG) {
           pass: configUserPassword,
         }
       ];
+      configFromCLI.data.useEncryptedPasswords = configUserPasswordEncrypted;
     }
   } else if (!configServerURL && !configPrimaryKey && !configAppName) {
     configFile = path.join(__dirname, 'parse-dashboard-config.json');
