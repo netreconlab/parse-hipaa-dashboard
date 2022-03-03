@@ -3,7 +3,7 @@
 
 ![dashboard](https://user-images.githubusercontent.com/8621344/102236202-38f32080-3ec1-11eb-88d7-24e38e95f68d.png)
 
-Example of how to setup and run your own [parse-dashboard](https://github.com/parse-community/parse-dashboard) for viewing/modifying your data in the Cloud. Designed for [parse-hipaa](https://github.com/netreconlab/parse-hipaa), but can be used for any parse-server.  
+Example of how to setup and run your own [parse-dashboard](https://github.com/parse-community/parse-dashboard) for viewing/modifying your data in the Cloud. Designed for [parse-hipaa](https://github.com/netreconlab/parse-hipaa), but can be used with any parse-server.  
 
 **Use at your own risk. There is not promise that this is HIPAA compliant and we are not responsible for any mishandling of your data**
 
@@ -15,7 +15,7 @@ parse-hipaa can be easily deployed or tested remote or locally.
 #### Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-You can use the one-button deployment to quickly deploy to Heroko. **Note that this is non-HIPAA compliant when using Heroku's free services**, so you need to work with Heroku to enable this. Once you click the Heroku button do the following:
+You can use the one-button deployment to quickly deploy to Heroko. **Note that this is non-HIPAA compliant when using Heroku's free services**, so you need to work with Heroku to enable this. You can [view this document for detailed instuctions](https://docs.google.com/document/d/1fniJavK_3T_SXZs2wwn-wa8nX-LzhhNgSORRK1LaZYI/edit?usp=sharing). Once you click the Heroku button do the following:
 
 1. Select your **App name**
 2. Under the **Config vars** section, set all `required` environment vars to connect to your parse-server
@@ -23,8 +23,9 @@ You can use the one-button deployment to quickly deploy to Heroko. **Note that t
 
 #### Using your own files for Heroku deployment
 1. Fork the the parse-hipaa-dashboard repo
-2. Open `dashboard/Dockerfile.heroku` and uncomment `COPY ./parse-dashboard-config.json ./parse-dashboard-config.json`. Edit the config file to your desired configuration. This will build from your respective repo instead of using the pre-built docker image
-3. You can then follow the directions on heroku's site for [deployment](https://devcenter.heroku.com/articles/git) and [integration](https://devcenter.heroku.com/articles/github-integration)
+2. Edit `parse-dashboard-config.json` to your desired configuration
+4. You can then click the Heroku deployment button from your respective repo or you can then follow the directions on heroku's site for [deployment](https://devcenter.heroku.com/articles/git) and [integration](https://devcenter.heroku.com/articles/github-integration)
+5. Set the `PARSE_DASHBOARD_CONFIG` config variable to `./src/parse-dashboard-config.json`
 
 ### Local: using docker 
 To get started with parse-hipaa simply type:
@@ -40,7 +41,7 @@ PARSE_DASHBOARD_COOKIE_SESSION_SECRET: # Unique string. This should be constant 
 MOUNT_PATH: # The default is "/dashboard". This needs to be exactly what you plan it to be behind the proxy, i.e. If you want to access cs.uky.edu/dashboard it should be "/dashboard"
 ```
 
-## Viewing Your Data via Parse Dashboard
+### Viewing Your Data via Parse Dashboard
 Parse-dashboard is binded to your localhost on port 4040 and can be accessed as such, e.g. http://localhost:4040/dashboard. The default login for the parse dashboard is username: "parse", password: "1234". For production you should change the password in the [postgres-dashboard-config.json](https://github.com/netreconlab/parse-hipaa/blob/master/parse-dashboard-config.json#L14). Note that ideally the password should be hashed by using something like [bcrypt-generator](https://bcrypt-generator.com) or using [multi factor authentication](https://github.com/parse-community/parse-dashboard#multi-factor-authentication-one-time-password). You can also add more users through this method.
 
 1. Open your browser and go to http://localhost:4040/dashboard
