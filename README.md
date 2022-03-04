@@ -23,7 +23,8 @@ You can use the one-button deployment to quickly deploy to Heroko. **Note that t
 
 #### Using your own files for Heroku deployment
 1. Fork the the parse-hipaa-dashboard repo
-2. Edit `parse-dashboard-config.json` to your desired configuration
+2. Edit `heroku.yml` in your repo by changing `Dockerfile.heroku` to `Dockerfile`. This will build from your respective repo instead of using the pre-built docker image
+3. Edit `parse-dashboard-config.json` to your desired configuration
 4. You can then click the Heroku deployment button from your respective repo or you can then follow the directions on heroku's site for [deployment](https://devcenter.heroku.com/articles/git) and [integration](https://devcenter.heroku.com/articles/github-integration)
 5. Set the `PARSE_DASHBOARD_CONFIG` config variable to `./src/parse-dashboard-config.json`
 
