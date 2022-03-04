@@ -1,0 +1,2 @@
+FROM netreconlab/parse-hipaa-dashboard:latest
+
