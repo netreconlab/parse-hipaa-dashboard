@@ -53,7 +53,7 @@ if (!process.env.PARSE_DASHBOARD_CONFIG) {
       configFromCLI.data.useEncryptedPasswords = configUserPasswordEncrypted;
     }
   } else if (!configServerURL && !configPrimaryKey && !configAppName) {
-    configFile = path.join(__dirname, 'parse-dashboard-config.json');
+    configFile = path.join(__dirname, 'lib', 'parse-dashboard-config.json');
   }
 } else {
   configFromCLI = {
