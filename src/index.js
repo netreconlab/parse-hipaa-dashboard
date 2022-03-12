@@ -4,8 +4,8 @@ const express = require('express');
 const ParseDashboard = require('parse-dashboard');
 
 const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 4040;
-const mountPath = process.env.MOUNT_PATH || '/';
+const port = process.env.PARSE_DASHBOARD_PORT || process.env.PORT || 4040;
+const mountPath = process.env.PARSE_DASHBOARD_MOUNT_PATH || process.env.MOUNT_PATH || '/';
 const allowInsecureHTTP = process.env.PARSE_DASHBOARD_ALLOW_INSECURE_HTTP;
 const cookieSessionSecret = process.env.PARSE_DASHBOARD_COOKIE_SESSION_SECRET;
 const trustProxy = process.env.PARSE_DASHBOARD_TRUST_PROXY;
@@ -17,10 +17,10 @@ if (trustProxy && allowInsecureHTTP) {
 
 let configFile = null;
 let configFromCLI = null;
-const configServerURL = process.env.PARSE_DASHBOARD_SERVER_URL;
+const configServerURL = process.env.PARSE_DASHBOARD_SERVER_URL || process.env.PARSE_SERVER_URL;
 const configGraphQLServerURL = process.env.PARSE_DASHBOARD_GRAPHQL_SERVER_URL;
-const configPrimaryKey = process.env.PARSE_DASHBOARD_PRIMARY_KEY;
-const configAppId = process.env.PARSE_DASHBOARD_APP_ID;
+const configPrimaryKey = process.env.PARSE_DASHBOARD_PRIMARY_KEY || process.env.PARSE_SERVER_PRIMARY_KEY;
+const configAppId = process.env.PARSE_DASHBOARD_APP_ID || process.env.PARSE_SERVER_APPLICATION_ID;
 const configAppName = process.env.PARSE_DASHBOARD_APP_NAME;
 const configUserId = process.env.PARSE_DASHBOARD_USER_ID;
 const configUserPassword = process.env.PARSE_DASHBOARD_USER_PASSWORD;
