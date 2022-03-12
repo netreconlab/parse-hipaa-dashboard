@@ -1,5 +1,7 @@
 # parse-hipaa-dashboard 
 
+[![npm version](https://badge.fury.io/js/parse-hipaa-dashboard.svg)](https://badge.fury.io/js/parse-hipaa-dashboard)
+[![weekly downloads](https://img.shields.io/npm/dw/parse-hipaa-dashboard)](https://www.npmjs.com/package/parse-hipaa-dashboard)
 [![ci](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/ci.yml)
 [![release](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/release.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/release.yml)
 [![Docker](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/docker-publish.yml)
