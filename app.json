@@ -45,13 +45,17 @@
         "description": "The config file for dashboard.",
         "required": false 
       },
-      "PORT": {
-        "description": "Port for parse-hipaa-dashboard, default is 4040.",
-        "value": "4040"
+      "PARSE_DASHBOARD_ALLOW_INSECURE_HTTP": {
+        "description": "Should allow insecure http.",
+        "value": "0"
       },
       "PARSE_DASHBOARD_TRUST_PROXY": {
         "description": "Should trust proxy in docker.",
-        "value": "1"
+        "value": "0"
+      },
+      "PORT": {
+        "description": "Port for parse-hipaa-dashboard, default is 4040.",
+        "value": "4040"
       },
       "MOUNT_PATH": {
         "description": "The mount path should be the same as the docker name.",
