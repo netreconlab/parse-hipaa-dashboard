@@ -51,7 +51,7 @@
       },
       "PARSE_DASHBOARD_TRUST_PROXY": {
         "description": "Should trust proxy in docker.",
-        "value": "0"
+        "required": false
       },
       "PORT": {
         "description": "Port for parse-hipaa-dashboard, default is 4040.",
