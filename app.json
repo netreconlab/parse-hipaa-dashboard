@@ -25,8 +25,8 @@
         "description": "The name of your app.",
         "required": true
       },
-      "PARSE_DASHBOARD_USER_ID": {
-        "description": "Specify the user password to connect with.",
+      "PARSE_DASHBOARD_USERNAME": {
+        "description": "Specify the username to connect to the dashboard.",
         "required": true
       },
       "PARSE_DASHBOARD_USER_PASSWORD": {
