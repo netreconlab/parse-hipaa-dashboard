@@ -1,6 +1,6 @@
 {
   "name": "parse-hipaa-dashboard",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The Parse-HIPAA Dashboard.",
   "main": "./lib/index.js",
   "repository": {
@@ -24,7 +24,7 @@
     "lib"
   ],
   "dependencies": {
-    "parse-dashboard": "^4.2.0"
+    "parse-dashboard": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.17.0",
