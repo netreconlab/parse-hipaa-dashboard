@@ -53,6 +53,6 @@
     "start": "node ./lib/index.js"
   },
   "engines": {
-    "node": ">=12.22.0 <17"
+    "node": ">=14.20.1"
   }
 }
