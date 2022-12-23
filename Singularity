@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: netreconlab/parse-hipaa:latest
+From: netreconlab/parse-hipaa-dashboard:latest
 
 %runscript
-echo "Successgully built singularity from docker!"
+echo "Successfully built singularity from docker!"
