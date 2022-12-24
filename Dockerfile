@@ -22,6 +22,7 @@ WORKDIR /parse-hipaa-dashboard
 COPY --from=build /parse-hipaa-dashboard/node_modules /parse-hipaa-dashboard/node_modules
 COPY /src/index.js ./index.js
 RUN mkdir lib
+COPY /src/parse-dashboard-config.json ./lib/parse-dashboard-config.json
 
 USER node
 
