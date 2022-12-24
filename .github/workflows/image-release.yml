@@ -1,8 +1,14 @@
 name: image-release
 
 on:
-  release:
-    types: [ published ]
+  push:
+    tags: [ '*.*.*' ]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: docker.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,9 +31,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-
-      - name: Get release version
-        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -55,7 +58,7 @@ jobs:
           context: ./
           platforms: linux/amd64, linux/arm/v6, linux/arm/v7, linux/arm64/v8
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.TAG }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
   singularity:
