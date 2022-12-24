@@ -4,7 +4,7 @@
 FROM node:lts-alpine AS build
 
 RUN mkdir parse-hipaa-dashboard
-WORKDIR ./parse-hipaa-dashboard
+WORKDIR /parse-hipaa-dashboard
 COPY . .
 
 # Install without scripts
@@ -16,11 +16,13 @@ RUN npm ci --omit=dev --ignore-scripts
 FROM node:lts-alpine AS release
 
 RUN mkdir parse-hipaa-dashboard
-WORKDIR ./parse-hipaa-dashboard
-COPY . .
+WORKDIR /parse-hipaa-dashboard
 
 # Copy build stage folders
 COPY --from=build /parse-hipaa-dashboard/node_modules /parse-hipaa-dashboard/node_modules
+COPY /src/index.js ./index.js
+RUN mkdir lib
 
-ENTRYPOINT []
-CMD ["node", "./src/index.js"]
+USER node
+
+ENTRYPOINT ["node", "/parse-hipaa-dashboard/index.js"]
