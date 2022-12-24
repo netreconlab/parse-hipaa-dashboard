@@ -12,7 +12,7 @@ const trustProxy = process.env.PARSE_DASHBOARD_TRUST_PROXY;
 
 if (trustProxy && allowInsecureHTTP) {
   console.log('Set only trustProxy *or* allowInsecureHTTP, not both.  Only one is needed to handle being behind a proxy.');
-  process.exit(-1);
+  process.exit(1);
 }
 
 let configFile = null;
@@ -22,9 +22,12 @@ const configGraphQLServerURL = process.env.PARSE_DASHBOARD_GRAPHQL_SERVER_URL;
 const configPrimaryKey = process.env.PARSE_DASHBOARD_PRIMARY_KEY || process.env.PARSE_SERVER_PRIMARY_KEY;
 const configAppId = process.env.PARSE_DASHBOARD_APP_ID || process.env.PARSE_SERVER_APPLICATION_ID;
 const configAppName = process.env.PARSE_DASHBOARD_APP_NAME;
-const configUsername = process.env.PARSE_DASHBOARD_USERNAME;
-const configUserPassword = process.env.PARSE_DASHBOARD_USER_PASSWORD;
-const configUserPasswordEncrypted = process.env.PARSE_DASHBOARD_USER_PASSWORD_ENCRYPTED || true;
+let configUsernames = process.env.PARSE_DASHBOARD_USERNAMES;
+let configUserPasswords = process.env.PARSE_DASHBOARD_USER_PASSWORDS;
+let configUserPasswordEncrypted = true;
+if (process.env.PARSE_DASHBOARD_USER_PASSWORD_ENCRYPTED == 'false') {
+  configUserPasswordEncrypted = false;
+}
 
 if (!process.env.PARSE_DASHBOARD_CONFIG) {
   if (configServerURL && configPrimaryKey && configAppId) {
@@ -43,14 +46,23 @@ if (!process.env.PARSE_DASHBOARD_CONFIG) {
     if (configGraphQLServerURL) {
       configFromCLI.data.apps[0].graphQLServerURL = configGraphQLServerURL;
     }
-    if (configUsername && configUserPassword) {
-      configFromCLI.data.users = [
-        {
-          user: configUsername,
-          pass: configUserPassword,
-        }
-      ];
-      configFromCLI.data.useEncryptedPasswords = configUserPasswordEncrypted;
+    if (configUsernames && configUserPasswords) {
+      configUsernames = configUsernames.split(", ");
+      configUserPasswords = configUserPasswords.split(", ");
+      if (configUsernames.length == configUserPasswords.length) {
+        const users = [];
+        configUsernames.forEach((username, index) => {
+          users.push({
+            user: username,
+            pass: configUserPasswords[index],
+          });
+        });
+        configFromCLI.data.users = users;
+        configFromCLI.data.useEncryptedPasswords = configUserPasswordEncrypted;
+      } else {
+        console.log('Dashboard usernames(' + configUsernames.length + ') ' + 'and passwords(' + configUserPasswords.length + ') must be the same size.');
+        process.exit(1);
+      }
     }
   } else if (!configServerURL && !configPrimaryKey && !configAppName) {
     configFile = path.join(__dirname, 'lib', 'parse-dashboard-config.json');
@@ -78,7 +90,7 @@ if (configFile) {
       process.exit(3);
     } else {
       console.log('There was a problem with your config. Exiting.');
-      process.exit(-1);
+      process.exit(1);
     }
   }
 } else if (configFromCLI) {
