@@ -107,7 +107,7 @@ jobs:
          fi
 
       - name: Update Singularity file tag
-         run: |
+        run: |
           sed -i "s/latest/$tag/" ./Singularity
 
       - name: Login and Deploy Container
