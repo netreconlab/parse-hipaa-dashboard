@@ -101,10 +101,9 @@ jobs:
             tag=$(echo "${recipe/Singularity\./}")
             if [ "$tag" == "Singularity" ]; then
                 tag=$TAG
-                sed -i "s/latest/$tag/" ./Singularity
-                cat Singularity
             fi
             # Build the container and name by tag
+            sed -i "s/latest/$tag/" ./Singularity
             echo "Tag is $tag."
             echo "tag=$tag" >> $GITHUB_ENV
          else
