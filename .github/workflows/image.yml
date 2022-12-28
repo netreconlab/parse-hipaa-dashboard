@@ -72,7 +72,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
   
   singularity:
-    needs: docker
+#    needs: docker
     runs-on: ubuntu-latest
     container:
       image: quay.io/singularity/singularity:v3.10.4
@@ -101,6 +101,8 @@ jobs:
             tag=$(echo "${recipe/Singularity\./}")
             if [ "$tag" == "Singularity" ]; then
                 tag=$TAG
+                sed -i 's/latest/2.0/' ./Singularity
+                cat Singularity
             fi
             # Build the container and name by tag
             echo "Tag is $tag."
