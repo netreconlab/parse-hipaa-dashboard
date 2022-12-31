@@ -1,6 +1,6 @@
 {
   "name": "parse-hipaa-dashboard",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The Parse-HIPAA Dashboard.",
   "main": "./lib/index.js",
   "repository": {
