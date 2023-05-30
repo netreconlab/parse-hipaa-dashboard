@@ -2,12 +2,13 @@
 
 [![](https://dockeri.co/image/netreconlab/parse-hipaa-dashboard)](https://hub.docker.com/r/netreconlab/parse-hipaa-dashboard)
 [![npm version](https://badge.fury.io/js/parse-hipaa-dashboard.svg)](https://badge.fury.io/js/parse-hipaa-dashboard)
+[![vulnerabilities](https://snyk.io/test/github/netreconlab/parse-hipaa-dashboard/badge.svg)](https://snyk.io/test/github/netreconlab/parse-hipaa-dashboard)
+[![dependency up-to-date](https://img.shields.io/librariesio/release/npm/parse-hipaa-dashboard)](https://libraries.io/npm/parse-hipaa-dashboard)
 [![weekly downloads](https://img.shields.io/npm/dw/parse-hipaa-dashboard)](https://www.npmjs.com/package/parse-hipaa-dashboard)
 [![ci](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/ci.yml)
 [![release](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/release.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/release.yml)
 [![image](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/image.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/image.yml)
 [![image-release](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/image-release.yml/badge.svg)](https://github.com/netreconlab/parse-hipaa-dashboard/actions/workflows/image-release.yml)
-
 
 ![dashboard](https://user-images.githubusercontent.com/8621344/102236202-38f32080-3ec1-11eb-88d7-24e38e95f68d.png)
 
