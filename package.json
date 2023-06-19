@@ -27,7 +27,7 @@
     "parse-dashboard": "5.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.21.5",
+    "@babel/cli": "7.22.5",
     "@babel/core": "7.22.5",
     "@babel/eslint-parser": "7.21.8",
     "@babel/preset-env": "^7.16.11",
