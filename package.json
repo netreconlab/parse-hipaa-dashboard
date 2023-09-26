@@ -31,7 +31,7 @@
     "@babel/core": "7.22.20",
     "@babel/eslint-parser": "7.22.9",
     "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "7.22.5",
+    "@babel/preset-typescript": "7.23.0",
     "@types/jasmine": "4.3.5",
     "eslint": "8.45.0",
     "eslint-plugin-flowtype": "8.0.3",
