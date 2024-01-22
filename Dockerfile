@@ -1,7 +1,7 @@
 ############################################################
 # Build stage
 ############################################################
-FROM node:18-alpine AS build
+FROM node:21-alpine AS build
 
 RUN mkdir parse-hipaa-dashboard
 WORKDIR /parse-hipaa-dashboard
