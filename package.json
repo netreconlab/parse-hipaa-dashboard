@@ -28,17 +28,17 @@
   },
   "devDependencies": {
     "@babel/cli": "7.23.4",
-    "@babel/core": "7.23.0",
-    "@babel/eslint-parser": "7.22.15",
+    "@babel/core": "7.23.7",
+    "@babel/eslint-parser": "7.23.3",
     "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "7.23.0",
+    "@babel/preset-typescript": "7.23.3",
     "@types/jasmine": "5.1.4",
     "eslint": "8.56.0",
     "eslint-plugin-flowtype": "8.0.3",
     "jasmine": "^5.0.0",
     "madge": "6.1.0",
     "nyc": "15.1.0",
-    "typescript": "5.2.2"
+    "typescript": "5.3.3"
   },
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
