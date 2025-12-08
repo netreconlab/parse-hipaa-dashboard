@@ -24,7 +24,7 @@
     "lib"
   ],
   "dependencies": {
-    "parse-dashboard": "8.0.0"
+    "parse-dashboard": "8.1.0"
   },
   "devDependencies": {
     "@babel/cli": "7.28.3",
