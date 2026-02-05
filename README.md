@@ -22,16 +22,16 @@ parse-hipaa can be easily deployed or tested remote or locally.
 ### Remote
 
 #### Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy?template=https://github.com/netreconlab/parse-hipaa-dashboard)
 
-You can use the one-button deployment to quickly deploy to Heroko. **Note that this is non-HIPAA compliant when using Heroku's free services**, so you need to work with Heroku to enable this. You can [view this document for detailed instuctions](https://docs.google.com/document/d/1fniJavK_3T_SXZs2wwn-wa8nX-LzhhNgSORRK1LaZYI/edit?usp=sharing). Once you click the Heroku button do the following:
+You can use the one-button deployment to quickly deploy to Heroko. **Note that this is non-HIPAA compliant when using Heroku's free services**, so you need to work with Heroku to enable this. You can [view this document for detailed instructions](https://docs.google.com/document/d/1fniJavK_3T_SXZs2wwn-wa8nX-LzhhNgSORRK1LaZYI/edit?usp=sharing). Once you click the Heroku button do the following:
 
 1. Select your **App name**
 2. Under the **Config vars** section, set all `required` environment vars to connect to your parse-server
 3. Scroll to the bottom of the page and press **Deploy app**
 
 #### Using your own files for Heroku deployment
-1. Fork the the parse-hipaa-dashboard repo
+1. Fork the parse-hipaa-dashboard repo
 2. Edit `heroku.yml` in your repo by changing `Dockerfile.heroku` to `Dockerfile`. This will build from your respective repo instead of using the pre-built docker image
 3. Edit `parse-dashboard-config.json` to your desired configuration
 4. You can then click the Heroku deployment button from your respective repo or you can then follow the directions on heroku's site for [deployment](https://devcenter.heroku.com/articles/git) and [integration](https://devcenter.heroku.com/articles/github-integration)
@@ -48,7 +48,7 @@ To get started with parse-hipaa simply type:
 ```bash
 PARSE_DASHBOARD_TRUST_PROXY: # Default is 1, this should always be left as 1 when using docker
 PARSE_DASHBOARD_COOKIE_SESSION_SECRET: # Unique string. This should be constant across all deployments on your system
-MOUNT_PATH: # The default is "/dashboard". This needs to be exactly what you plan it to be behind the proxy, i.e. If you want to access cs.uky.edu/dashboard it should be "/dashboard"
+MOUNT_PATH: # The default is "/dashboard". This needs to be exactly what you plan it to be behind the proxy, i.e. If you want to access usc.edu/dashboard it should be "/dashboard"
 ```
 
 ### Viewing Your Data via Parse Dashboard

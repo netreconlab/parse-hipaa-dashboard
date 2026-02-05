@@ -1,0 +1,5 @@
+.env
+/.github
+docker-compose*.yml
+Singularity
+singularity-compose.yml
