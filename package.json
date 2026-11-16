@@ -1,6 +1,6 @@
 {
   "name": "parse-hipaa-dashboard",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "The Parse-HIPAA Dashboard.",
   "main": "./lib/index.js",
   "repository": {
@@ -24,18 +24,17 @@
     "lib"
   ],
   "dependencies": {
-    "parse-dashboard": "9.2.0"
+    "parse-dashboard": "10.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.29.7",
-    "@babel/core": "8.0.7",
-    "@babel/eslint-parser": "7.29.7",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "7.29.7",
+    "@babel/cli": "8.1.0",
+    "@babel/core": "8.1.2",
+    "@babel/eslint-parser": "8.1.2",
+    "@babel/preset-env": "^8.0.7",
+    "@babel/preset-typescript": "8.0.7",
     "@types/jasmine": "6.0.0",
-    "eslint": "8.57.0",
-    "eslint-plugin-flowtype": "8.0.3",
-    "jasmine": "^6.0.0",
+    "eslint": "10.15.0",
+    "jasmine": "^7.0.0",
     "madge": "8.0.0",
     "nyc": "18.0.0",
     "typescript": "5.9.3"
@@ -53,6 +52,6 @@
     "start": "node ./lib/index.js"
   },
   "engines": {
-    "node": ">=20.19.0 <21.0.0 || >=22.12.0 <23.0.0 || >=24.1.0 <25.0.0"
+    "node": ">=22.13.0 <23.0.0 || >=24.1.0 <25.0.0 || >=26.13.0 <27.0.0"
   }
 }
